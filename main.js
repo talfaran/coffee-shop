@@ -8,13 +8,27 @@ var coffeeShop = {
     frenchPress: 12
   },
 
-  makeDrink: function (drinkType) {
-    // TODO: Finish this method
-  }
+
 }
 
-coffeeShop.makeDrink("latte");
-coffeeShop.makeDrink("americano");
-coffeeShop.makeDrink("filtered");
-coffeeShop.makeDrink("doubleShot");
-coffeeShop.makeDrink("frenchPress");
+makeDrink = function (AnyCoffeeShop ,drinkType) {
+  if (AnyCoffeeShop.drinkRequirements[drinkType]) {
+    if (AnyCoffeeShop.beans - AnyCoffeeShop.drinkRequirements[drinkType] >= 0) {
+      alert("enjoy your drink!");
+      return AnyCoffeeShop.beans -= AnyCoffeeShop.drinkRequirements[drinkType];
+    } else {
+      return alert("there are not enough beans to make your drink");
+    }
+  } else {
+    alert("we are sorry, but we do not make that drink");
+  }
+
+}
+
+
+
+makeDrink(coffeeShop, "latte");
+makeDrink(coffeeShop, "americano");
+makeDrink(coffeeShop, "filtered");
+makeDrink(coffeeShop, "doubleShot");
+makeDrink(coffeeShop, "frenchPress");
